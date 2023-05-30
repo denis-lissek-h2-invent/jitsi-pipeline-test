@@ -15,7 +15,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         env:
-          - artifactName: ${{needs.test-artifact.outputs.artifactName}}
+          artifactName: ${{needs.test-artifact.outputs.artifactName}}
         with:
           name: $artifactName
 
