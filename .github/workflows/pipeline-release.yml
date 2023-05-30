@@ -10,7 +10,7 @@ on:
 
 jobs:
   development:
-    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/pipeline-development.yml@main
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/pipeline-development.yml@feature/docker_keycloak_upgrade
 
   create-release:
-    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-release.yml@main
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-release.yml@feature/docker_keycloak_upgrade

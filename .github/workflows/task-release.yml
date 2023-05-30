@@ -6,7 +6,7 @@ on: workflow_call
 
 jobs:
   artifact:
-    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-build.yml@main
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-build.yml@feature/docker_keycloak_upgrade
 
   create_release:
     needs:

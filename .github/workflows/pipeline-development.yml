@@ -10,4 +10,4 @@ on:
 
 jobs:
   tests:
-    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test.yml@main
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test.yml@feature/docker_keycloak_upgrade
