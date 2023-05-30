@@ -1,13 +1,12 @@
 name: Development Pipeline
 
-on: [
-  workflow-call,
+on:
   push:
     branches:
       - '**'
       - '!master'
       - '!main'
-]
+
 
 jobs:
   tests:
