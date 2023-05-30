@@ -1,0 +1,14 @@
+name: Development Pipeline
+
+on: [
+  workflow-call,
+  push:
+    branches:
+      - '**'
+      - '!master'
+      - '!main'
+]
+
+jobs:
+  tests:
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test.yml@main

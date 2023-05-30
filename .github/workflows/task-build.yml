@@ -1,12 +1,6 @@
-name: Build Pipeline
+name: Build Artifact
 
-
-on:
-  workflow_run:
-    workflows: [Development]
-    types:
-      - completed
-
+on: workflow_call
 
 jobs:
   build:

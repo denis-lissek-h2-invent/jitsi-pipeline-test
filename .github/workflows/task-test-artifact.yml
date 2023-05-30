@@ -1,9 +1,9 @@
-name: Development
+name: Task test artifact
 
-on: push
+on: workflow_call
 
 jobs:
-  setup:
+  buildTestArtifact:
     runs-on: ubuntu-latest
     # region declare_service
     services:
@@ -45,9 +45,14 @@ jobs:
           npm run build
       # endregion npm_install
       # endregion setup
-      # region test
-      # region phpunit
-      - name: Run PHP-Unit tests
-        run: php composer.phar test
-      # endregion phpunit
-      # endregion test
+      # region save_artifact
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r jitsi-admin_${{github.run_number}}.zip .
+
+      - name: Upload articats
+        uses: actions/upload-artifact@v3
+        with:
+          name: jitsi-admin_${{github.run_number}}
+          path: jitsi-admin_${{github.run_number}}.zip
+      # endregion save_artifact

@@ -1,0 +1,20 @@
+name: Task test
+
+on: workflow_call
+
+jobs:
+  test-artifact:
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test-artifact.yml@main
+  test:
+    needs:
+      - test-artifact
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # region test
+      # region phpunit
+      - name: Run PHP-Unit tests
+        run: php composer.phar test
+      # endregion phpunit
+      # endregion test

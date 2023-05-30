@@ -1,0 +1,16 @@
+name: Release Pipeline
+env:
+  GITHUB_TOKEN: ${{ secrets.token }}
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  development:
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/pipeline-development.yml@main
+
+  create-release:
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-release.yml@main
