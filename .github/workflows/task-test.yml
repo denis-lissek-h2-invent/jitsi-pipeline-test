@@ -3,11 +3,19 @@ name: Task test
 on: workflow_call
 
 jobs:
+  test-artifact:
+    uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test-artifact.yml@feature/docker_keycloak_upgrade
+  test:
+    needs:
+      - test-artifact
 
     runs-on: ubuntu-latest
+
     steps:
-      - name: Build
-        uses: denis-lissek-h2-invent/jitsi-pipeline-test/.github/workflows/task-test-artifact.yml@feature/docker_keycloak_upgrade
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{needs.test-artifact.outputs.artifactName}}
 
       - name: LS
         run: ls -lah

@@ -11,6 +11,8 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: root
+    outputs:
+      artifactName: jitsi-admin-test_${{github.run_number}}
     # endregion declare_service
     steps:
       # region git_pull
@@ -50,9 +52,9 @@ jobs:
         with:
           args: zip -qq -r jitsi-admin_${{github.run_number}}.zip .
 
-      - name: Upload articats
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: jitsi-admin_${{github.run_number}}
-          path: jitsi-admin_${{github.run_number}}.zip
+          name: jitsi-admin-test_${{github.run_number}}
+          path: jitsi-admin-test_${{github.run_number}}.zip
       # endregion save_artifact
