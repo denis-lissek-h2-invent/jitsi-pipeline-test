@@ -14,8 +14,10 @@ jobs:
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v3
+        env:
+          - artifactName: ${{needs.test-artifact.outputs.artifactName}}
         with:
-          name: ${{needs.test-artifact.outputs.artifactName}}
+          name: $artifactName
 
       - name: LS
         run: ls -lah
